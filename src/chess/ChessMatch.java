@@ -1,6 +1,13 @@
 package chess;
 
 import boardgame.Board;
+import boardgame.Position;
+import chess.pieces.Bishop;
+import chess.pieces.Horse;
+import chess.pieces.King;
+import chess.pieces.Peon;
+import chess.pieces.Queen;
+import chess.pieces.Rook;
 
 public class ChessMatch {
 
@@ -8,6 +15,7 @@ public class ChessMatch {
 	
 	public ChessMatch() {
 		board = new Board(8,8);
+		initialSetup();
 	}
 	
 	public ChessPiece[][] getPieces(){
@@ -18,6 +26,25 @@ public class ChessMatch {
 			}
 		}
 		return mat;
+	}
+	
+	private void initialSetup() {
+		board.placePiece(new Rook(board, Color.WHITE), new Position(0,0));
+		board.placePiece(new Rook(board, Color.WHITE), new Position(0,7));
+		board.placePiece(new Horse(board, Color.WHITE), new Position(0,1));
+		board.placePiece(new Horse(board, Color.WHITE), new Position(0,6));
+		board.placePiece(new Bishop(board, Color.WHITE), new Position(0,2));
+		board.placePiece(new Bishop(board, Color.WHITE), new Position(0,5));
+		board.placePiece(new Queen(board, Color.WHITE), new Position(0,3));
+		board.placePiece(new King(board, Color.WHITE), new Position(0,4));
+		board.placePiece(new Peon(board, Color.WHITE), new Position(1,0));
+		board.placePiece(new Peon(board, Color.WHITE), new Position(1,1));
+		board.placePiece(new Peon(board, Color.WHITE), new Position(1,2));
+		board.placePiece(new Peon(board, Color.WHITE), new Position(1,3));
+		board.placePiece(new Peon(board, Color.WHITE), new Position(1,4));
+		board.placePiece(new Peon(board, Color.WHITE), new Position(1,5));
+		board.placePiece(new Peon(board, Color.WHITE), new Position(1,6));
+		board.placePiece(new Peon(board, Color.WHITE), new Position(1,7));
 	}
 	
 }
